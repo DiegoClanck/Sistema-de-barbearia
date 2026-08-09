@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 
@@ -35,12 +35,11 @@ def create_app(test_config=None):
 
     @app.get("/")
     def index():
-        return jsonify(
-            nome="Sistema de Barbearia",
-            versao="1.0.0",
-            status="online",
-            documentacao="Consulte o README.md",
-        )
+        return render_template("index.html")
+
+    @app.get("/api/health")
+    def health():
+        return jsonify(nome="Sistema de Barbearia", versao="1.0.0", status="online")
 
     @app.errorhandler(404)
     def not_found(_error):

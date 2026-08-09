@@ -13,6 +13,19 @@ def test_login_rejects_invalid_password(client):
     assert response.status_code == 401
 
 
+def test_home_serves_visual_interface(client):
+    response = client.get("/")
+    assert response.status_code == 200
+    assert b"Navalha" in response.data
+    assert b"app-shell" in response.data
+
+
+def test_health_endpoint(client):
+    response = client.get("/api/health")
+    assert response.status_code == 200
+    assert response.get_json()["status"] == "online"
+
+
 def test_client_registration_hashes_password_and_can_login(client):
     response = client.post(
         "/api/clientes",

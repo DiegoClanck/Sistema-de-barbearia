@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11110f">
+  <meta name="description" content="Agendamento e gestão inteligente para barbearias.">
+  <title>Navalha — Barbearia & Estilo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Navalha, início">
+      <span class="brand-mark">N</span>
+      <span>NAVALHA<small>BARBEARIA & ESTILO</small></span>
+    </a>
+    <nav class="public-nav" aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="header-actions">
+      <button class="button button-ghost" data-action="open-login">Entrar</button>
+      <button class="button button-gold" data-action="start-booking">Agendar horário</button>
+    </div>
+    <button class="menu-button" aria-label="Abrir menu" data-action="toggle-menu"><span></span><span></span></button>
+  </header>
+
+  <main id="public-site">
+    <section class="hero" id="inicio">
+      <div class="hero-copy reveal">
+        <span class="eyebrow"><i></i> Tradição no corte. Precisão no estilo.</span>
+        <h1>Seu estilo,<br><em>nossa assinatura.</em></h1>
+        <p>Uma experiência de barbearia pensada nos detalhes. Escolha seu profissional, reserve seu horário e chegue pronto para renovar.</p>
+        <div class="hero-actions">
+          <button class="button button-gold button-large" data-action="start-booking">Reservar agora <span>→</span></button>
+          <a class="text-link" href="#servicos">Conheça os serviços <span>↘</span></a>
+        </div>
+        <div class="social-proof">
+          <div class="avatars"><span>CS</span><span>RM</span><span>JV</span><span>+</span></div>
+          <div><strong>4,9 <span class="stars">★★★★★</span></strong><small>Mais de 800 clientes satisfeitos</small></div>
+        </div>
+      </div>
+      <div class="hero-art reveal">
+        <div class="hero-frame">
+          <div class="barber-illustration" aria-label="Ambiente sofisticado de barbearia">
+            <div class="arch arch-one"></div><div class="arch arch-two"></div>
+            <div class="mirror"><span>N</span></div>
+            <div class="chair"><i></i></div>
+            <div class="counter"></div>
+          </div>
+          <div class="floating-card hours"><span>ABERTO HOJE</span><strong>09:00 — 19:00</strong></div>
+          <div class="floating-card since"><strong>8</strong><span>ANOS DE<br>EXPERIÊNCIA</span></div>
+        </div>
+      </div>
+      <div class="scroll-hint"><span></span> DESCUBRA</div>
+    </section>
+
+    <section class="services-section" id="servicos">
+      <div class="section-heading reveal">
+        <div><span class="eyebrow"><i></i> Feito para você</span><h2>Serviços com <em>identidade.</em></h2></div>
+        <p>Do clássico ao contemporâneo, cada atendimento é personalizado para realçar o que você tem de melhor.</p>
+      </div>
+      <div class="service-grid" id="public-services"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>
+    </section>
+
+    <section class="experience" id="experiencia">
+      <div class="experience-card reveal">
+        <span class="experience-number">01</span><div class="experience-icon">✦</div><h3>Escolha seu estilo</h3><p>Encontre o serviço ideal para o seu momento.</p>
+      </div>
+      <div class="experience-card reveal">
+        <span class="experience-number">02</span><div class="experience-icon">◷</div><h3>Reserve em segundos</h3><p>Selecione profissional, dia e horário sem ligações.</p>
+      </div>
+      <div class="experience-card reveal">
+        <span class="experience-number">03</span><div class="experience-icon">✓</div><h3>Viva a experiência</h3><p>Chegue no horário e deixe o resto com a gente.</p>
+      </div>
+    </section>
+
+    <section class="closing-cta" id="contato">
+      <span class="eyebrow"><i></i> Seu próximo corte começa aqui</span>
+      <h2>Pronto para uma nova <em>versão de você?</em></h2>
+      <button class="button button-gold button-large" data-action="start-booking">Agendar meu horário →</button>
+    </section>
+  </main>
+
+  <section id="app-shell" class="app-shell hidden" aria-label="Área do usuário">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">N</span><span>NAVALHA<small>GESTÃO</small></span></a>
+      <nav id="app-navigation"></nav>
+      <div class="sidebar-user"><span class="user-avatar" id="user-avatar">U</span><div><strong id="user-name">Usuário</strong><small id="user-role">Perfil</small></div><button title="Sair" data-action="logout">↪</button></div>
+    </aside>
+    <div class="app-content">
+      <header class="app-header"><button class="app-menu" data-action="toggle-sidebar">☰</button><div><span id="page-kicker">VISÃO GERAL</span><h1 id="page-title">Olá!</h1></div><button class="icon-button" aria-label="Notificações">⌁</button></header>
+      <div id="app-view" class="app-view"></div>
+    </div>
+  </section>
+
+  <div class="modal-backdrop hidden" id="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
+    <div class="modal">
+      <button class="modal-close" data-action="close-modal" aria-label="Fechar">×</button>
+      <span class="brand-mark modal-mark">N</span>
+      <span class="eyebrow"><i></i> Bem-vindo</span>
+      <h2 id="auth-title">Entre na sua conta</h2>
+      <p id="auth-subtitle">Acesse seus horários e cuide do seu estilo.</p>
+      <form id="login-form">
+        <label>Usuário<input name="usuario" autocomplete="username" placeholder="Digite seu usuário" required></label>
+        <label>Senha<input name="senha" type="password" autocomplete="current-password" placeholder="Sua senha" required></label>
+        <button class="button button-gold button-full" type="submit">Entrar na conta <span>→</span></button>
+      </form>
+      <form id="register-form" class="hidden">
+        <label>Nome completo<input name="nome" autocomplete="name" placeholder="Como podemos chamar você?" required></label>
+        <label>Usuário<input name="usuario" autocomplete="username" placeholder="Crie um usuário" required></label>
+        <label>Senha<input name="senha" type="password" minlength="6" autocomplete="new-password" placeholder="Mínimo de 6 caracteres" required></label>
+        <button class="button button-gold button-full" type="submit">Criar minha conta <span>→</span></button>
+      </form>
+      <button class="switch-auth" data-action="switch-auth">Ainda não tem conta? <strong>Cadastre-se</strong></button>
+      <div class="demo-access"><span>Acesso de demonstração</span><button data-demo="admin">Admin</button><button data-demo="carlos">Barbeiro</button><button data-demo="joao">Cliente</button></div>
+    </div>
+  </div>
+
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</body>
+</html>

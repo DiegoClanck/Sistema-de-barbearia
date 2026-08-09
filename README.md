@@ -25,7 +25,19 @@ python -m pip install -r requirements.txt
 python app.py
 ```
 
-A API estará disponível em `http://localhost:5000`. O banco é criado automaticamente em `instance/barbearia.db`.
+A interface estará disponível em `http://localhost:5000`. O banco é criado automaticamente em `instance/barbearia.db`.
+
+## Interface web
+
+A aplicação inclui uma interface responsiva para celular e desktop:
+
+- Página pública com apresentação e catálogo de serviços.
+- Login e cadastro de clientes.
+- Área do cliente com visão geral, reservas e cancelamentos.
+- Agenda do profissional com confirmação e conclusão de atendimentos.
+- Dashboard administrativo, catálogo de serviços e gestão da equipe.
+
+Use os acessos de demonstração na tela de login para conhecer cada perfil.
 
 Em produção, defina uma chave segura:
 
